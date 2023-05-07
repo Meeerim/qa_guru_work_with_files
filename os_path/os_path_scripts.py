@@ -7,7 +7,7 @@ PROJECT_ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
 
 print(os.path.dirname(CURRENT_FILE_PATH))
 print(PROJECT_ROOT_PATH)
-
+#C:\Users\skmee\PycharmProjects\qa_guru_python_5_7_files\resources
 os.path.dirname(__file__)
 print(os.path.dirname(__file__))
 resources = os.path.join(PROJECT_ROOT_PATH, 'resources')

@@ -7,4 +7,4 @@ print(text)
 zip_file.close()
 
 with ZipFile('resources/hello.zip') as hello_zip:
-    hello_zip.extract('Hello.txt')
+    hello_zip.extract('Hello.txt') 
