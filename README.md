@@ -1,1 +1,1 @@
-# qa_guru_UI_tests
+# Home work from lesson 7 "Работаем с файлами. Александр Котляр"
