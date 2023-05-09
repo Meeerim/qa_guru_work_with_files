@@ -30,5 +30,5 @@ def browser_setup():
 
 
 def test_file_in_browser():
-    downloaded_file_path = os.path.join(PROJECT_ROOT_PATH, 'tmp','docs-pytest-org-en-latest.pdf')
+    downloaded_file_path = os.path.join(PROJECT_ROOT_PATH,'docs-pytest-org-en-latest.pdf')
     assert os.path.basename(downloaded_file_path) == 'docs-pytest-org-en-latest.pdf'
