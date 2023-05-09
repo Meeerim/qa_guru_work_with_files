@@ -16,7 +16,7 @@ from os_path.os_path_scripts import CURRENT_FILE_PATH, PROJECT_ROOT_PATH
 def browser_setup():
     options = webdriver.ChromeOptions()
     prefs = {
-        "download.default_directory": os.path.join(PROJECT_ROOT_PATH, 'tmp'),
+        "download.default_directory": os.path.join(PROJECT_ROOT_PATH, 'resources'),
         "download.prompt_for_download": False
     }
     options.add_experimental_option("prefs", prefs)
