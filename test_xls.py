@@ -1,19 +1,15 @@
 import os
-
-import pytest
-import xlrd
-
-from os_path.os_path_scripts import PROJECT_ROOT_PATH
+from xlrd import open_workbook
+from os_path.os_path_scripts import resources
 
 
 # TODO оформить в тест, добавить ассерты и использовать универсальный путь
 
-@pytest.fixture
-def xls_filepath():
-    return os.path.join(PROJECT_ROOT_PATH, '..', 'resources/file_example_XLS_10.xls')
+xls_filepath = os.path.join(resources, 'file_example_XLS_10.xls')
 
-def test_xls_document(xls_filepath):
-    book = xlrd.open_workbook(xls_filepath)
+
+def test_xls_document():
+    book = open_workbook(xls_filepath)
     print(f'Количество листов {book.nsheets}')
     print(f'Имена листов {book.sheet_names()}')
     sheet = book.sheet_by_index(0)

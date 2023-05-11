@@ -1,22 +1,19 @@
 import os
 import csv
-import pytest
-from os_path.os_path_scripts import PROJECT_ROOT_PATH
+from os_path.os_path_scripts import resources
 
 # TODO оформить в тест, добавить ассерты и использовать универсальный путь
 
-@pytest.fixture
-def csv_filepath():
-    return os.path.join(PROJECT_ROOT_PATH, '..', 'resources/eggs.csv')
+csv_filepath =os.path.join(resources,'eggs.csv')
 
 
-def test_pdf_document(csv_filepath):
+def test_pdf_document():
     with open(csv_filepath, 'w', newline='') as csvfile:
         csvwriter = csv.writer(csvfile, delimiter=',')
         csvwriter.writerow(['Anna', 'Pavel', 'Peter'])
         csvwriter.writerow(['Alex', 'Serj', 'Yana'])
 
-    with open('resources/eggs.csv') as csvfile:
+    with open(csv_filepath) as csvfile:
         csvreader = csv.reader(csvfile)
         data = list(csvreader)
         for row in data:

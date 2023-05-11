@@ -3,17 +3,15 @@ import os
 import pytest
 from pypdf import PdfReader
 
-from os_path.os_path_scripts import PROJECT_ROOT_PATH, resources
+from os_path.os_path_scripts import resources
 
 
-@pytest.fixture
-def pdf_filepath():
-    return os.path.join(PROJECT_ROOT_PATH, '..', 'resources/docs-pytest-org-en-latest.pdf')
+pdf_filepath = os.path.join(resources, 'docs-pytest-org-en-latest.pdf')
 
 
 # TODO оформить в тест, добавить ассерты и использовать универсальный путь
 
-def test_pdf_document(pdf_filepath):
+def test_pdf_document():
     reader = PdfReader(pdf_filepath)
     number_of_pages = len(reader.pages)
     page = reader.pages[0]
