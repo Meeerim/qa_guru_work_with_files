@@ -11,7 +11,7 @@ def test_downloaded_file_size():
     with open(file_path, 'wb') as file:
         file.write(r.content)
 
-    size = os.path.getsize('selenium_logo.png')
+    size = os.path.getsize(file_path)
 
     assert size == 30803
 

@@ -1,4 +1,5 @@
 import os
+import time
 
 import pytest
 from selenium import webdriver
@@ -22,13 +23,20 @@ def browser_setup():
     options.add_experimental_option("prefs", prefs)
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
     browser.config.driver = driver
-    browser.open("https://github.com/pytest-dev/pytest")
-    browser.element(".d-none .Button-label").click()
-    browser.element('[data-open-app="link"]').click()
+    #browser.open("https://github.com/pytest-dev/pytest")
+    #browser.element(".d-none .Button-label").click()
+    #browser.element('[data-open-app="link"]').click()
     yield
     driver.quit()
 
 
-def test_file_in_browser():
-    downloaded_file_path = os.path.join(tmp,'docs-pytest-org-en-latest.pdf')
-    assert os.path.basename(downloaded_file_path) == 'docs-pytest-org-en-latest.pdf'
+def test_file_in_browser(browser_setup):
+    browser.open("https://github.com/pytest-dev/pytest")
+    browser.element(".d-none .Button-label").click()
+    browser.element('[data-open-app="link"]').click()
+    time.sleep(10)
+    file_element = os.path.join(tmp, 'pytest-main.zip')
+    size_file = os.path.getsize(file_element)
+    assert size_file == 1569962
+
+    assert os.path.basename(file_element) == 'pytest-main.zip'
